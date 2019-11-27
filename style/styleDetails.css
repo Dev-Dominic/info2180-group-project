@@ -1,0 +1,7 @@
+#main{
+	display: grid;
+	grid-column: 3 / span 4;
+	grid-gap: 0.6rem;
+	grid-row: 2;
+}
+

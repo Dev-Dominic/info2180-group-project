@@ -1,0 +1,38 @@
+/* Stylesheet for login page */
+#main{
+    grid-column: 5 / span 4;
+	margin-top: 150px;
+}
+
+img.avatar {
+width: 400%;
+}
+
+.space{
+    padding: 60px;
+    grid-column: 1 / span 2;
+    text-align: center;
+}
+
+.loginBtn{
+    background-color: dodgerblue;
+    width: 120px;
+    height: 30px;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  p{
+    font-weight: bold;
+  }
