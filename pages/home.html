@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Home</title>
+		<link rel="stylesheet" type="text/css" href="mainStyles.css">
+		<link rel="stylesheet" type="text/css" href="styleHome.css">
+</head>
+<body>
+
+    <div class="header">
+        <img id="logo3" src= "bug.png" width= 20px height=20px>
+        <h2>BugMe Issue Tracker</h2>
+    </div>
+
+    <div class="sidebar">
+		<div class="sidebar_container">
+			<div class="sideItems">
+					<img id="home" src= "home.png" width= 20px height=20px> 
+					<p>Home</p>
+			</div>
+
+			<div class="sideItems">
+					<img id="phone" src= "addUser.png" width= 20px height=20px>
+					<p>Add User</p>
+			</div>
+			<div class="sideItems">
+					<img id="phone" src= "newIssue.png" width= 20px height=20px>
+					<p>New Issue</p>
+			</div>
+			<div class="sideItems">
+					<img id="phone" src= "logout.png" width= 20px height=20px>
+					<p>Logout</p>
+			</div>
+		</div>
+    </div>
+
+    <div class="main">
+        <div class="top"> 
+			<h1>Issues</h1>
+			<button id="top" class="newIssue" style="color: white">Create New Issue</button>
+        </div>
+
+        <ul id="aboveTitles">
+			<li>Filter by: </li>
+			<li id="activeTicket">all</li>
+			<li>open</li>
+			<li>my tickets</li>
+        </ul>
+
+        <ul class="titles"> 
+                <li>Title</li>
+                <li>Type</li>
+                <li>Status</li>
+                <li>Assigned To</li>
+                <li>Created</li>
+        </ul
+
+    </div>
+    
+</body>
+</html>
