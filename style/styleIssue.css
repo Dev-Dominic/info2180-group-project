@@ -3,7 +3,8 @@
 	display: grid;
 	grid-column: 3 / span 4;
 	grid-gap: 0.6rem;
-	grid-row: 2;
+  grid-row: 2;
+  margin-left: 40px;
 }
 
 input[type=text] {
@@ -14,7 +15,14 @@ input[type=text] {
     border: 1px solid #ccc;
     box-sizing: border-box;
   }
+  .header{
+    height: 68px;
+    width: 100%;
 
+}
+.header > h2 {
+    margin-right: 1200px ;
+}
 .submitBtn{ 
 	background-color: dodgerblue;
 	width: 90px;
@@ -27,4 +35,40 @@ input[type=text] {
 
 p{
 	font-weight: bold;
+}
+a{
+	font-weight: bold;
+	color: black;
+	margin-left: 8px;
+	
+}
+
+a:link{
+	text-decoration: none;
+}
+
+#main > h1{
+  margin-top: 30px;
+}
+
+#main > input, select{
+
+  border-radius: 5px;
+  background-color: #F8F8F8;
+  box-shadow: 1px 1px 1px 1px #F8F8F8;
+} 
+
+.open{
+  background-color: rgb(114, 223, 114);
+  color: white;
+}
+
+.closed{
+  background-color: rgb(231, 76, 76);
+  color: white;
+}
+
+.inProgress{
+  background-color: yellow;
+  color: black;
 }

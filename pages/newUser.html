@@ -2,51 +2,53 @@
 <html>
 <head>
         <title> New User </title>
-        <link rel="stylesheet" type="text/css" href="mainStyles.css">
-        <link rel="stylesheet" type="text/css" href="styleUser.css">
+        <link rel="stylesheet" type="text/css" href="/style/mainStyles.css">
+        <link rel="stylesheet" type="text/css" href="/style/styleUser.css">
+        <script src = "/scripts/main.js"></script>
 </head>
 <body>
         <div class="header">
-                <img id="logo" src= "bug.png" width= 20px height=20px>
+                <img id="logo" src= "/assets/bug.png" width= 20px height=20px>
                 <h2>BugMe Issue Tracker</h2>
                 </div>
         </div>
 
         <div class="sidebar">
                 <div class="sidebar_container">
-                        <div class="sideItems">
-                                <img id="home" src= "home.png" width= 20px height=20px> 
-                                <p>Home</p>
-                        </div>
-
-                        <div class="sideItems">
-                                <img id="phone" src= "addUser.png" width= 20px height=20px>
-                                <p>Add User</p>
-                        </div>
-                        <div class="sideItems">
-                                <img id="phone" src= "newIssue.png" width= 20px height=20px>
-                                <p>New Issue</p>
-                        </div>
-                        <div class="sideItems">
-                                <img id="phone" src= "logout.png" width= 20px height=20px>
-                                <p>Logout</p>
-                        </div>
+                <div class="sideItems">
+                                <img id="home" src= "/assets/home.png" width= 20px height=20px> 
+                                <a href = "/pages/home.html">Home</a>
                 </div>
+
+                <div class="sideItems">
+                                <img id="phone" src= "/assets/addUser.png" width= 20px height=20px>
+                                <a href ="/pages/newUser.html">Add User</a>
+                </div>
+                <div class="sideItems">
+                                <img id="phone" src= "/assets/newIssue.png" width= 20px height=20px>
+                                <a href = "/pages/createIssue.html">New Issue</a>
+                </div>
+                <div class="sideItems">
+                                <img id="phone" src= "/assets/logout.png" width= 20px height=20px>
+                                <a>Logout</a>
+                </div>
+        </div>
                 </div>
 
         <div id="main"> 
-                <h1> New User</h1>
-
-                <p> First name</p>
+                
+                <h1>New User</h1>
+                <form>
+                <p>Firstname</p>
                 <input type="text" id = "fname" class="fname" placeholder="John" required> 
-                <p> Last name</p>
+                <p>Lastname</p>
                 <input type="text" id = "lname" class="lname" placeholder="Doe" required>
-                <p> Password</p>
+                <p>Password</p>
                 <input type="password" id = "pword" class="pword" required>
-                <p> Email </p>
-                <input type="text" id = "email" class="email" placeholder="example@example.com" required>
-                <button id = "btn" class="submitBtn" style = "color:white"> Submit </button>
-
+                <p>Email </p>
+                <input type="email" id = "email" class="email" placeholder="example@example.com" required>
+                <button id = "btn" class="submitBtn" style = "color:white" onclick=validatePassword()> Submit </button>
+                </form>
         </div>
 </body>
 </html>

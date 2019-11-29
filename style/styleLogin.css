@@ -7,7 +7,14 @@
 img.avatar {
 width: 400%;
 }
+.header{
+    height: 68px;
+    width: 100%;
 
+}
+.header > h2 {
+    margin-right: 1200px ;
+}
 .space{
     padding: 60px;
     grid-column: 1 / span 2;
@@ -16,12 +23,16 @@ width: 400%;
 
 .loginBtn{
     background-color: dodgerblue;
-    width: 120px;
+    width: 180px;
     height: 30px;
     text-align: center;
-    border-radius: 0 5px 5px 0;
+    border: 1px solid dodgerblue;
+    box-shadow: 1px 1px 1px 1px rgb(30, 108, 187);
+    border-radius: 5px;
     cursor: pointer;
     font-size: 15px;
+    margin-left: 150px;
+    margin-top: 20px;
 }
 
 input[type=text], input[type=password] {
@@ -30,9 +41,15 @@ input[type=text], input[type=password] {
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
+    
     box-sizing: border-box;
+    background-color: #F8F8F8;
   }
-
+input{
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #F8F8F8;
+}
   p{
     font-weight: bold;
   }
+
