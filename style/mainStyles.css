@@ -20,21 +20,23 @@ body{
 /* Header for all pages */
 .header{
 	display: flex;
-	justify-content: center;
-	align-content: center;
+	/*justify-content: center;*/
+	/*align-content: center;*/
 	grid-column: 1 / -1;
 	grid-row: 1;
     background-color: black;
     color: white;
     align-items: center;
 	text-align: left;
+	border: 1px solid white;
 }
 
 .header h2{
-    margin-right: 900px;
+    /*margin-right: 600px;*/
+    border: 1px solid white;
 }
 .header img{
-    margin-right: 20px;
+    /*margin-right: 20px;*/
 }
 
 /* This is for home page */
