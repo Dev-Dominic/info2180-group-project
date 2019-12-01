@@ -1,25 +1,58 @@
 /* ALL AJAX REQUEST */
 
 // Global DOM elements
-const logInBtn = document.querySelector("#loginBtn");
-const email = document.querySelector("#email"); 
-const password = document.querySelector("#pword");
+const mainView = document.querySelector("#main");
 
-logInBtn.addEventListener("click", e  => {
-	e.preventDefault();
-	login()
-		.then(data  => {
-			console.log(data);
+/* Event Listeners */
+// Login load
+window.addEventListener("load",() => {
+	renderPage("login")
+		.then(response  => {
+			if(!response['status']){
+				alert(response["body"]);
+				clearLogin();
+				return;
+			}
+
+			mainView.innerHTML = response["body"];
+			// Login DOM elements
+			const logInBtn = document.querySelector("#loginBtn");
+			const email = document.querySelector("#email"); 
+			const password = document.querySelector("#pword");
+
+			// Login
+			logInBtn.addEventListener("click", e  => {
+				e.preventDefault();
+				login(email, password)
+					.then(response  => {
+
+						// Handling form response from login fetch query
+						if(!response['status']){
+							alert(response["body"]);
+							clearLogin(email, password);
+							return;
+						}
+
+						renderPage("home")
+							.then(response => {
+								if(!response['status']){
+									alert(response["body"]);
+									clearLogin(email, password);
+									return;
+								}
+
+								mainView.innerHTML = response["body"];
+							});
+					});
+			});
 		});
-	/*
-	renderPage("")
-		.then(data => {
-			console.log(data);					
-		});*/
 });
 
-async function login(){
-	let response = await fetch("/php_scripts/login.php", {
+
+/* End of Event Listeners */
+
+async function login(email, password){
+	let response = await fetch("../php_scripts/login.php", {
 		method: 'POST', 
 		headers: {
 			"Content-Type": "application/json",
@@ -35,7 +68,10 @@ async function login(){
 
 async function renderPage(page){
 	let page_response = await fetch(`/php_scripts/pageController.php?context=${page}`);
-	return page_response.text();
+	return page_response.json();
 }
 
-
+function clearLogin(email, password){
+	email.value = "";
+	password.value = "";
+}

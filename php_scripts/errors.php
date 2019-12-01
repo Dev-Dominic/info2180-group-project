@@ -3,14 +3,22 @@
 	function errMsg($type){
 		switch($type){
 			case "session":
-				return "Restricted Access: Not Currently Logged In";
+				$err =  "Restricted Access: Not Currently Logged In"; 
 				break;
 			case "page":
-				return "404 Error: Page Not Found";
+				$err =  "404 Error: Page Not Found";
+				break;
+			case "loginFailed":
+				$err = "Failed to Login";
 				break;
 			default:
-				return "An Error occured";
+				$err = "An Error occured";
 				break;
 		}	
+
+		return array( 
+			"status" => false,
+			"body" => $err
+		);
 	}
 ?>

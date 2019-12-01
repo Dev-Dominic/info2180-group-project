@@ -9,9 +9,9 @@ CREATE TABLE Users(
 	userID INT NOT NULL AUTO_INCREMENT,
 	firstname VARCHAR(30) NOT NULL,
 	lastname VARCHAR(30) NOT NULL,
-	password TEXT NOT NULL, 
+	password TEXT  NOT NULL, 
 	email VARCHAR(25) NOT NULL, 
-	date_joined DATE DEFAULT CURRENT_TIMESTAMP,
+	date_joined DATETIME DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(userID)
 ); 
 
@@ -49,4 +49,4 @@ CREATE TABLE Issues(
 );
 
 /* Setting a Default database access user */
-/* GRANT */
+GRANT ALL PRIVILEGES ON info2180_bugme_issue_tracker.* TO 'admin'@'localhost' IDENTIFIED BY "info2180-project";

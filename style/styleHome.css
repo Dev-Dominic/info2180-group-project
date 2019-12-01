@@ -1,11 +1,22 @@
 /* Stylesheet for home page */
-.main{
+#wrapper{
 	display: grid;
+	grid-template-columns: 1fr 5fr;
+	/*
 	grid-template-rows: 1fr 1fr 5fr;
 	grid-gap: 0.6rem;
 	grid-row: 2;
 	grid-column: 3 / span 8;
 	margin-left: 50px;
+	*/
+}
+
+.sidebar{
+	grid-column: 1;
+}
+
+.content{
+	grid-column: 2;
 }
 
  button{
@@ -57,17 +68,6 @@
 	font-size: 15px;
 	font-weight: 900;
 	padding: 0.5rem;
-}
-
-a{
-	font-weight: bold;
-	color: black;
-	margin-left: 8px;
-	
-}
-
-a:link{
-	text-decoration: none;
 }
 
 .header{

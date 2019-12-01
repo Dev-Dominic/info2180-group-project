@@ -1,0 +1,39 @@
+<!-- New User style sheet -->
+<link rel="stylesheet" type="text/css" href="/style/styleUser.css">
+
+<div class="sidebar">
+	<div class="sidebar_container">
+		<div class="sideItems">
+			<img id="home" src= "/assets/home.png" width= 20px height=20px> 
+			<a href = "/pages/home.html">Home</a>
+		</div>
+
+		<div class="sideItems">
+			<img id="phone" src= "/assets/addUser.png" width= 20px height=20px>
+			<a href ="/pages/newUser.html">Add User</a>
+		</div>
+		<div class="sideItems">
+			<img id="phone" src= "/assets/newIssue.png" width= 20px height=20px>
+			<a href = "/pages/createIssue.html">New Issue</a>
+		</div>
+		<div class="sideItems">
+			<img id="phone" src= "/assets/logout.png" width= 20px height=20px>
+			<a>Logout</a>
+		</div>
+	</div>
+</div>
+
+<div id="content"> 
+	<h1>New User</h1>
+	<form>
+	<p>Firstname</p>
+	<input type="text" id = "fname" class="fname" placeholder="John" required> 
+	<p>Lastname</p>
+	<input type="text" id = "lname" class="lname" placeholder="Doe" required>
+	<p>Password</p>
+	<input type="password" id = "pword" class="pword" required>
+	<p>Email </p>
+	<input type="email" id = "email" class="email" placeholder="example@example.com" required>
+	<button id = "btn" class="submitBtn" style = "color:white" onclick=validatePassword()> Submit </button>
+	</form>
+</div>
