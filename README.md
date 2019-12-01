@@ -6,3 +6,7 @@
 2. php_scripts: Contain form handle scripts and view handling script.
 3. scripts: Contains all javascript scripts.
 4. style: Contains each style sheet.
+
+## Default Database Credentials
+User = admin
+Password  = info2180-project

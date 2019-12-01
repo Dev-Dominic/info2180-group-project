@@ -13,16 +13,20 @@
         </div>
     </div>
 
+	<!--
     <div class="space">
         <img src="/assets/avatar.png" alt="Avatar" class="avatar" >
     </div>
-    
+	--> 
+
     <div id= "main"> 
-        <p> Email address</p>
-        <input type="text" id="email" class="email"> 
-        <p> Password</p>
-        <input type="Password" id="pword" class="pword" required> 
-        <button id="btn" class="loginBtn" style="color: white">Login</button>
+		<form id="loginForm">
+			<label> Email address</label>
+			<input type="text" id="email" class="email" name="email" required> 
+			<label> Password</label>
+			<input type="Password" id="pword" class="pword" name="password" required> 
+			<button id="loginBtn" class="loginBtn" style="color: white">Login</button>
+		</form>
     </div>
 
 	<script src="scripts/server_request.js"></script>
