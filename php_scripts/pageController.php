@@ -1,12 +1,20 @@
 <?php
 
-	$pages = ["home", "details", "newUser", "createIssue", "index"]
+	include_once "errors.php";
 
-	if(isset($_GET['context']){
-		if(in_array($_GET['context'],pages)){
-			exit(readfile($_GET['context'].".html"));
-		}	
+	// Page Redirects
+	$pages = ["home", "details", "newUser", "createIssue", "index"];
+	$htmlDir = "../public/"; // Html root directory files
 
-		exit("404 ERROR: PAGE NOT FOUND");
-	}
+
+	if(!isset($_GET) || empty($_GET) || in_array($_GET['context'], pages))
+		exit(errMsg("page"));
+	
+	// Testing if user is currently in a session 
+	session_start();
+	if(!isset($_SESSION) || empty($_SESSION) || $_SESSION['loggedIn'] != 1)
+		exit(errMsg("session"));
+		
+	exit(readfile($htmlDir . $_GET['context'].". html"));
+
 ?>
