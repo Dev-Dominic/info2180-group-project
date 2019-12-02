@@ -1,36 +1,17 @@
 /* Stylesheet for home page */
-#wrapper{
-	display: grid;
-	grid-template-columns: 1fr 5fr;
-	/*
-	grid-template-rows: 1fr 1fr 5fr;
-	grid-gap: 0.6rem;
-	grid-row: 2;
-	grid-column: 3 / span 8;
-	margin-left: 50px;
-	*/
-}
-
-.sidebar{
-	grid-column: 1;
-}
-
-.content{
-	grid-column: 2;
-}
-
  button{
 	 border: 1px solid rgb(74, 143, 74);	
 	 box-shadow: 1px 1px 1px 1px rgb(22, 185, 22);
 	 font-weight: bold;
  }
+
 .top{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	grid-row: 1;
-	
 }
+
 .top > h1 {
 	margin-left: 23px;
 }
@@ -70,11 +51,3 @@
 	padding: 0.5rem;
 }
 
-.header{
-    height: 68px;
-    width: 100%;
-
-}
-.header > h2 {
-    margin-right: 1200px ;
-}

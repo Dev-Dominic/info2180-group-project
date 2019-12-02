@@ -44,7 +44,7 @@
 	$_SESSION["userID"] = $result['userID'];
 	$_SESSION["loggedIn"] = 1;
 
-	exit(json_encode(array("status" => true, "error" => "")));
+	exit(json_encode(array("status" => true, "body" => "")));
 
 
 ?>

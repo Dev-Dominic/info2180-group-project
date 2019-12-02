@@ -13,70 +13,31 @@
     
 }
 
-.header{
-    height: 68px;
-    width: 100%;
-
-}
-.header > h2 {
-    margin-right: 1200px ;
-}
-#main{
-    display: grid;
-	grid-column: 3 / span 4;
-	grid-gap: 0.6rem;
-    grid-row: 2;
-    margin-left: 50px;
-    margin-bottom: 70px;
+#newUserForm{
+	width: 60%;
+	height: 60%;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
-#main > p{
-    margin-top: 30px;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-#main > h1{
-    margin-top: 20px;
-    font-size: 45px;
-}
-
-input[type=text], input[type=password], input[type=email] {
-    width: 100%;
+input {
     padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     background-color: #F8F8F8;
     box-shadow: 1px 1px 1px 1px rgb(175, 175, 175);
-  }
-
-p{
-	font-weight: bold;
 }
 
-a{
+label{
 	font-weight: bold;
-	color: black;
-	margin-left: 8px;
-	
-}
-
-a:link{
-	text-decoration: none;
-
+	text-transform: uppercase;
+	font-size: 0.8rem;
 }
 
 .error{
     background-color : rgb(190, 79, 79);
 }
 
-form{
-    margin-bottom: 130px;
-}
-
-#main input{
-    margin-bottom: 40px;
-}

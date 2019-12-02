@@ -1,50 +1,54 @@
-<!-- Issue stylesheet -->
-<link rel="stylesheet" type="text/css" href="/style/styleIssue.css">
+<div id="wrapper">
+	<div class="sidebar">
+		<div class="sidebar_container">
+			<div class="sideItems">
+				<img id="home" src= "/assets/home.png" width= 20px height=20px> 
+				<a href="" class="home">Home</a>
+			</div>
 
-<div class="sidebar">
-	<div class="sidebar_container">
-		<div class="sideItems">
-			<img id="home" src= "/assets/home.png" width= 20px height=20px> 
-			<a href = "/pages/home.html">Home</a>
-		</div>
+			<div class="sideItems">
+				<img id="phone" src= "/assets/addUser.png" width= 20px height=20px>
+				<a href ="" class="addUserPage">Add User</a>
+			</div>
 
-		<div class="sideItems">
-			<img id="phone" src= "/assets/addUser.png" width= 20px height=20px>
-			<a href ="/pages/newUser.html">Add User</a>
-		</div>
-		<div class="sideItems">
-			<img id="phone" src= "/assets/newIssue.png" width= 20px height=20px>
-			<a href = "/pages/createIssue.html">New Issue</a>
-		</div>
-		<div class="sideItems">
-			<img id="phone" src= "/assets/logout.png" width= 20px height=20px>
-			<a>Logout</a>
+			<div class="sideItems">
+				<img id="phone" src= "/assets/newIssue.png" width= 20px height=20px>
+				<a href="" class="createIssue">New Issue</a>
+			</div>
+
+			<div class="sideItems">
+				<img id="phone" src= "/assets/logout.png" width= 20px height=20px>
+				<a href="" class="logout">Logout</a>
+			</div>
+
 		</div>
 	</div>
-</div>
 
-<div id="content"> 
-	<h1>Create Issue</h1>
+	<div class="content"> 
+		<h1>Create Issue</h1>
 
-	<p>Title</p>
-	<input type="text" id = "title" class="title"> 
-	<p>Description</p>
-	<input type="text" id = "description" class="description">
-	<p>Assigned To</p>
-	<select name="cars">
-			<option></option>
-		  </select>
-	<p> Type</p>
-	<select name="type">
-			<option value="bug">Bug</option>
-			<option value="proposal">Proposal</option>
-			<option value="task">Task</option>
-		  </select>
-	<p>Priority</p>
-	<select name="cars">
-			<option value="minor">Minor</option>
-			<option value="major">Major</option>
-			<option value="critical">Critical</option>
-		  </select>
-	<button id = "btn" class="submitBtn" style = "color:white"> Submit </button>
+		<form id="newIssueForm">	
+			<label>Title</label>
+			<input type="text" id = "title" class="title"> 
+			<label>Description</label>
+			<input type="text" id = "description" class="description">
+			<label>Assigned To</label>
+			<select name="cars">
+					<option></option>
+				  </select>
+			<label> Type</label>
+			<select name="type">
+					<option value="bug">Bug</option>
+					<option value="proposal">Proposal</option>
+					<option value="task">Task</option>
+				  </select>
+			<label>Priority</label>
+			<select name="cars">
+					<option value="minor">Minor</option>
+					<option value="major">Major</option>
+					<option value="critical">Critical</option>
+				  </select>
+			<button id = "btn" class="submitBtn" style = "color:white"> Submit </button>
+			</form>
+	</div>
 </div>
