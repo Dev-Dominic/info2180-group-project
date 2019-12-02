@@ -30,6 +30,9 @@ export function windowLoad(){
 
 // Login
 export function loginSubmission(logInBtn){
+	if(logInBtn == null)
+		return ;
+
 	logInBtn.addEventListener("click", e  => {
 		e.preventDefault();
 		login(email, password)
@@ -75,4 +78,18 @@ export function pageRenderQuery(e, page){
 			if(logInBtn != null)
 				loginSubmission(logInBtn);
 		});
+}
+
+// Makes FETCH POST request to add new user
+export async function newUserQuery(userInfo){
+	let userAdded = await fetch("/php_scripts/newUser.php", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+		body: JSON.stringify(userInfo)
+	});
+
+	return userAdded.json();
 }

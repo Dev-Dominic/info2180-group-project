@@ -11,6 +11,9 @@
 			case "loginFailed":
 				$err = "Failed to Login";
 				break;
+			case "newUserErr":
+				$err = "Failed to Add New User";
+				break;
 			default:
 				$err = "An Error occured";
 				break;

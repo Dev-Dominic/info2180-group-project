@@ -1,4 +1,4 @@
-# PHP TODO
+# TODO
 
 ## Setup server connection with server.php file
 
@@ -12,27 +12,34 @@
 		5. Start session and store currently logged in user information in SESSION superglobal 
 		6. Make AJAX request to pageController.php to render new page
 
-2. Create New User 
+2. Create New User(Finished)
+	* Make AJAX POST request to newUser.php
+	* newUser.php:
+		1. Check if valid POST request and if user making request currently has a session
+		2. Santize data field inputs
+		4. Ensure that the password is valid
+		3. HASH password
+		3. Make a PDO prepared statement inerstion into database with:
+			* firstname
+			* lastname
+			* hashed password
+			* email
 
 3. Create New Issue 
+	* 
 
 4. Viewing all Issues(DASHBOARD HOME) 
 
-5. Viewing Issue
+5. Viewing Issue(Details)
 
-6. Servering Pages(Finished)
+6. Serving Pages(Finished)
 	* Make AJAX request to pageController.php with context detailing what page to fetch
 	* pageController.php:
 		1. Check context to determine what page to send as response  
 		2. Send requested html as reponse  
 
-7. Formating HTML Pages 
-	1. Formating Login Page
-
-
-## Formating Javascript modules
+## Formating Javascript modules(Finished)
 1. Main.js(Connected to index.html)
 2. RenderPage.js
-3. Functions to Handdle evenListeners
+3. Events.js Functions to Handle evenListeners
 4. MISC functions(eg. clearLogin)  
-5. domElements.js stores all dom elements 

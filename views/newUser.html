@@ -28,14 +28,14 @@
 		<h1>New User</h1>
 		<form id="newUserForm">
 			<label>Firstname</label>
-			<input type="text" id = "fname" class="fname" placeholder="John" required> 
+			<input type="text" id = "fname" class="fname" placeholder="John" name="firstname"required> 
 			<label>Lastname</label>
-			<input type="text" id = "lname" class="lname" placeholder="Doe" required>
+			<input type="text" id = "lname" class="lname" placeholder="Doe" name="lastname" required>
 			<label>Password</label>
-			<input type="password" id = "pword" class="pword" required>
+			<input type="password" id = "userPassword" class="pword" name="password" required>
 			<label>Email </label>
-			<input type="email" id = "email" class="email" placeholder="example@example.com" required>
-			<button id = "btn" class="submitBtn" style = "color:white" onclick=validatePassword()> Submit </button>
+			<input type="email" id = "userEmail" class="email" placeholder="example@example.com" name="email"required>
+			<button id = "btn" class="newUserBtn" style = "color:white">Submit</button>
 		</form>
 	</div>
 </div>

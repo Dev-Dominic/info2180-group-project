@@ -16,16 +16,14 @@ export async function login(email, password){
 	return response.json();
 }
 
-export async function logout(){
-
-}
-
-export async function newUser(newUserInfo){
-
-}
-
-export async function newIssue(newUserInfo){
-
+// Creates JSON object with user data from newUser form
+export function retrieveUserFormData(){
+	return {
+		"firstname": document.querySelector("#fname").value,
+		"lastname": document.querySelector("#lname").value,
+		"password": document.querySelector("#userPassword").value,
+		"email": document.querySelector("#userEmail").value,
+	};
 }
 
 // Clears login form fields 

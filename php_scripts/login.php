@@ -2,6 +2,7 @@
 	
 	include_once "errors.php";
 	include_once "server.php";
+	include_once "misc.php";
 
 	/* Handles User login  */
 	$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
@@ -12,6 +13,9 @@
 	// Retrieving form data 
 	$content = trim(file_get_contents("php://input"));
 	$decoded = json_decode($content, true);
+
+	// Sanitize form results
+	$decoded = sanitize($decoded);
 
 	// Query Database using user email 
 	$conn = newConnection();
@@ -45,6 +49,4 @@
 	$_SESSION["loggedIn"] = 1;
 
 	exit(json_encode(array("status" => true, "body" => "")));
-
-
 ?>
