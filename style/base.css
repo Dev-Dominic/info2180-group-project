@@ -1,0 +1,43 @@
+#wrapper{
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	height: 100%;
+}
+
+/* Side Bar Styling */
+.sidebar{
+	background-color: #F8F8F8; 
+	padding: 20px;
+	grid-column: 1;
+	height: 100%;
+}
+
+.sidebar_container{
+	display: flex; 
+	flex-direction: column;
+	justify-content: space-between;
+	height: 25%;
+}
+
+.sideItems{
+    display: flex;
+    align-items: center;
+	justify-content: flex-start;
+}
+
+.sideItems a{
+	margin-left: 0.5rem;
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: black;
+}
+
+.sideItems a:link{
+	text-decoration: none;
+}
+
+/* Page content */
+.content{
+	grid-column: 2;
+	padding: 50px;
+}
