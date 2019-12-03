@@ -26,6 +26,33 @@ export function retrieveUserFormData(){
 	};
 }
 
+export function retrieveIssueFormData(){
+	return {
+		"title": document.querySelector("#title").value,
+		"description": document.querySelector("#description").value,
+		"assigned_to": document.querySelector("#assigned_to").value,
+		"type": document.querySelector("#type").value,	
+		"priority": document.querySelector("#priority").value,
+	};
+}
+
+// Loads New Issue page information for Assigned To
+export function createIssuePageInfo(){
+	fetch("/php_scripts/misc.php?context=getAllUsers")
+		.then(response => response.json())
+		.then(response => {
+			// Assigned to dropdown selection 
+			const assignedTo = document.querySelector("#assigned_to");
+
+			for(let i = 0; i < response.length; i++){
+				let selection = document.createElement("option");
+				selection.appendChild(document.createTextNode(response[i]["fullname"]));
+
+				assignedTo.appendChild(selection);
+			}
+		});
+}
+
 // Clears login form fields 
 export function clearLogin(email, password){
 	email.value = "";

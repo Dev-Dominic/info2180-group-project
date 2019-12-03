@@ -1,8 +1,8 @@
 /* Main Module JS */
 
 // Imports
-import { windowLoad, pageRenderQuery, loginSubmission, newUserQuery }   from "./events.js";
-import { retrieveUserFormData } from "./misc.js";
+import { windowLoad, pageRenderQuery, loginSubmission, newUserQuery, createNewIssue }   from "./events.js";
+import { retrieveUserFormData, retrieveIssueFormData ,createIssuePageInfo } from "./misc.js";
 
 // Login load
 window.addEventListener("load", e => windowLoad(e)); 
@@ -14,6 +14,7 @@ document.addEventListener('click',e => {
 		return;
 
 	let targetClass = e.target.className;
+	console.log(targetClass);
 
 	switch(targetClass){
 		case "home":
@@ -26,6 +27,7 @@ document.addEventListener('click',e => {
 			break;
 		case "createIssue":
 			pageRenderQuery(e, "createIssue");
+			createIssuePageInfo();// Runs query to update Assigned to selection with user names  
 			break;
 		case "logout":
 			pageRenderQuery(e, "logout");
@@ -40,6 +42,17 @@ document.addEventListener('click',e => {
 					}
 
 					alert("SUCCESSFULLY ADDED USER");
+				});
+			break;
+		case "newIssueBtn":
+			createNewIssue(retrieveIssueFormData())
+				.then(response => {
+					if(!response['status']){
+						alert(response["body"]);
+						return;
+					}
+
+					alert("SUCCESSFULLY CREATE ISSUE");
 				});
 			break;
 	}

@@ -26,7 +26,11 @@
 			* email
 
 3. Create New Issue 
-	* 
+	* Make AJAX POST request to createNewIssue.php
+	* createNewIssue.php:
+		1. Check if valid POST request and if user making request currently has a session
+		2. Santize data field inputs
+		3. Insert new issue information into database 
 
 4. Viewing all Issues(DASHBOARD HOME) 
 

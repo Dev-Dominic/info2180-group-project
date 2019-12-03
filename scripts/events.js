@@ -93,3 +93,17 @@ export async function newUserQuery(userInfo){
 
 	return userAdded.json();
 }
+
+// Makes FETCH POST request to add new user
+export async function createNewIssue(issueInfo){
+	let issueAdded= await fetch("/php_scripts/createNewIssue.php", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json"
+		},
+		body: JSON.stringify(issueInfo)
+	});
+
+	return issueAdded.json();
+}

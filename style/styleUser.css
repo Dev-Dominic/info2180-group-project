@@ -1,6 +1,7 @@
 /* Stylesheet for new user */
-.submitBtn{ 
+.newUserBtn{ 
 	background-color: rgb(9, 72, 134);
+	color: #fff;
 	width: 160px;
     height: 38px;
     text-align: center;
@@ -10,7 +11,6 @@
     font-size: 15px;
     font-weight: bold;
     box-shadow: 1px 1px 1px 1px rgb(29, 33, 83);
-    
 }
 
 #newUserForm{
