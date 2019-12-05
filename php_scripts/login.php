@@ -2,7 +2,7 @@
 	
 	include_once "errors.php";
 	include_once "server.php";
-	include_once "misc.php";
+	//include_once "misc.php";
 
 	/* Handles User login  */
 	$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
@@ -15,7 +15,7 @@
 	$decoded = json_decode($content, true);
 
 	// Sanitize form results
-	$decoded = sanitize($decoded);
+	//$decoded = sanitize($decoded);
 
 	// Query Database using user email 
 	$conn = newConnection();
