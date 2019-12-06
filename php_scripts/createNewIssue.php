@@ -23,28 +23,37 @@
 	// Sanitize form results
 	$decoded = sanitize($decoded);
 
-	// Query for person to assign to 
-	$getID = newConnection();
-	$fullname = $decoded['assigned_to'];
-	$assigned_to_id = $getID->query("SELECT userID FROM Users WHERE CONCAT(firstname, ' ', lastname)='$fullname'")->fetch()['userID'];
 
-	// Database Insertion
-	$conn = newConnection();	
-	$stmt = $conn->prepare("
-		INSERT INTO Issues (title, description, assigned_to, created_by, type, priority)
-		VALUES (?, ?, ?, ?, ?, ?)
-	");
+	try{
+	
+		// Query for person to assign to 
+		$getID = newConnection();
+		$fullname = $decoded['assigned_to'];
+		$assigned_to_id = $getID->query("SELECT userID FROM Users WHERE CONCAT(firstname, ' ', lastname)='$fullname'")->fetch()['userID'];
 
-	$stmt->execute([
-		$decoded["title"], 
-		$decoded["description"], 
-		$assigned_to_id,
-		$_SESSION['userID'],
-		$decoded["type"],
-		$decoded["priority"],
-	]);
+		$entries = array(
+			$decoded["title"], 
+			$decoded["description"], 
+			$assigned_to_id,
+			$_SESSION['userID'],
+			$decoded["type"],
+			$decoded["priority"],
+		);
 
-	//  database
-	exit(json_encode(["status" => true, "body" => ""]))
+		// Database Insertion
+		$conn = newConnection();	
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$stmt = $conn->prepare("
+			INSERT INTO Issues (title, description, assigned_to, created_by, issueType, priority, status)
+			VALUES (?, ?, ?, ?, ?, ?, 'OPEN');
+		");
+
+		// Database entry
+		$stmt->execute($entries);
+
+		exit(json_encode(["status" => true, "body" => ""]));
+	}catch(Exception $e){
+		exit(json_encode(["status" => false , "body" => "Error Adding New Issue"]));
+	}
 
 ?>

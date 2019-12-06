@@ -27,18 +27,21 @@ export function retrieveUserFormData(){
 }
 
 export function retrieveIssueFormData(){
-	return {
+	let issueData = {
 		"title": document.querySelector("#title").value,
 		"description": document.querySelector("#description").value,
 		"assigned_to": document.querySelector("#assigned_to").value,
 		"type": document.querySelector("#type").value,	
 		"priority": document.querySelector("#priority").value,
 	};
+
+	document.querySelector("#newIssueForm").reset();
+	return issueData;
 }
 
 // Loads New Issue page information for Assigned To
 export function createIssuePageInfo(){
-	fetch("/php_scripts/misc.php?context=getAllUsers")
+	fetch("/php_scripts/getAllUsers.php")
 		.then(response => response.json())
 		.then(response => {
 			// Assigned to dropdown selection 
