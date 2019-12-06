@@ -30,16 +30,22 @@
 
 	$hash_password = password_hash($decoded["password"], PASSWORD_DEFAULT);
 
-	// Database Insertion
-	$conn = newConnection();	
-	$stmt = $conn->prepare("
-		INSERT INTO Users (firstname, lastname, password, email)
-		VALUES (?, ?, ?, ?)
-	");
+	try{
+		// Database Insertion
+		$conn = newConnection();	
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$stmt->execute([$decoded["firstname"], $decoded["lastname"], $hash_password, $decoded["email"]]);
+		$stmt = $conn->prepare("
+			INSERT INTO Users (firstname, lastname, password, email)
+			VALUES (?, ?, ?, ?)
+		");
 
-	//  database
-	exit(json_encode(["status" => true, "body" => ""]))
+		$stmt->execute([$decoded["firstname"], $decoded["lastname"], $hash_password, $decoded["email"]]);
+
+		//  database
+		exit(json_encode(["status" => true, "body" => ""]));
+	}catch(Exception $e){
+		exit(json_encode(["status" => false, "body" => "Error occured adding new User"]));
+	}
 
 ?>

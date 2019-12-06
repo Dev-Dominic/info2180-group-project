@@ -18,12 +18,15 @@ export async function login(email, password){
 
 // Creates JSON object with user data from newUser form
 export function retrieveUserFormData(){
-	return {
+	let userData =  {
 		"firstname": document.querySelector("#fname").value,
 		"lastname": document.querySelector("#lname").value,
 		"password": document.querySelector("#userPassword").value,
 		"email": document.querySelector("#userEmail").value,
 	};
+
+	document.querySelector("#newUserForm").reset();
+	return userData;
 }
 
 export function retrieveIssueFormData(){

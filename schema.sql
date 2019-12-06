@@ -10,7 +10,7 @@ CREATE TABLE Users(
 	firstname VARCHAR(30) NOT NULL,
 	lastname VARCHAR(30) NOT NULL,
 	password TEXT  NOT NULL, 
-	email VARCHAR(25) NOT NULL, 
+	email VARCHAR(50) NOT NULL, 
 	date_joined DATETIME DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY(userID)
 ); 
@@ -28,21 +28,21 @@ CREATE TABLE Issues(
 	created_by INT NOT NULL,
 	created DATETIME DEFAULT CURRENT_TIMESTAMP,
 	updated DATETIME DEFAULT CURRENT_TIMESTAMP,
-	issueType VARCHAR(10) CHECK (issueType IN (
+	issueType VARCHAR(10) NOT NULL CHECK (issueType IN (
 		'Bug',
 		'Proposal',
 		'Task'
-	)) NOT NULL,
-	priority VARCHAR(10) CHECK (priority IN (
+	)),
+	priority VARCHAR(10) NOT NULL CHECK (priority IN (
 		'Minor',
 		'Major',
 		'Critical'
-	)) NOT NULL,
-	status VARCHAR(12) CHECK (status IN (
+	)),
+	status VARCHAR(12) NOT NULL CHECK (status IN (
 		'OPEN',
 		'CLOSED',
 		'IN PROGRESS'
-	)) NOT NULL,
+	)),
 	PRIMARY KEY (issueID),
 	FOREIGN KEY(assigned_to) REFERENCES Users(userID) ON DELETE CASCADE,
 	FOREIGN KEY(created_by) REFERENCES Users(userID) ON DELETE CASCADE
