@@ -12,7 +12,6 @@ let password = null;
 export function windowLoad(){
 	renderPage("login")
 		.then(response  => {
-			console.log(response);
 			if(!response['status']){
 				alert(response["body"]);
 				clearLogin();
@@ -39,7 +38,6 @@ export function loginSubmission(logInBtn){
 		login(email, password)
 			.then(response  => {
 
-				console.log(response['status']);
 				// Handling form response from login fetch query
 				if(!response['status']){
 					alert(response["body"]);
