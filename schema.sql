@@ -32,17 +32,17 @@ CREATE TABLE Issues(
 		'Bug',
 		'Proposal',
 		'Task'
-	)),
+	)) NOT NULL,
 	priority VARCHAR(10) CHECK (priority IN (
 		'Minor',
 		'Major',
 		'Critical'
-	)),
+	)) NOT NULL,
 	status VARCHAR(12) CHECK (status IN (
 		'OPEN',
 		'CLOSED',
 		'IN PROGRESS'
-	)),
+	)) NOT NULL,
 	PRIMARY KEY (issueID),
 	FOREIGN KEY(assigned_to) REFERENCES Users(userID) ON DELETE CASCADE,
 	FOREIGN KEY(created_by) REFERENCES Users(userID) ON DELETE CASCADE

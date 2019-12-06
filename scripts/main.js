@@ -14,7 +14,6 @@ document.addEventListener('click',e => {
 		return;
 
 	let targetClass = e.target.className;
-	console.log(targetClass);
 
 	switch(targetClass){
 		case "home":
@@ -48,10 +47,11 @@ document.addEventListener('click',e => {
 			createNewIssue(retrieveIssueFormData())
 				.then(response => {
 					if(!response['status']){
+						console.log(response["body"]);
 						alert(response["body"]);
 						return;
 					}
-
+					
 					alert("SUCCESSFULLY CREATE ISSUE");
 				});
 			break;
