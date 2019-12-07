@@ -2,7 +2,7 @@
 
 // Imports
 import { windowLoad, pageRenderQuery, loginSubmission, newUserQuery, createNewIssue }   from "./events.js";
-import { retrieveUserFormData, retrieveIssueFormData ,createIssuePageInfo } from "./misc.js";
+import { retrieveUserFormData, retrieveIssueFormData, retrieveIssues ,createIssuePageInfo } from "./misc.js";
 
 // Login load
 window.addEventListener("load", e => windowLoad(e)); 
@@ -18,6 +18,7 @@ document.addEventListener('click',e => {
 	switch(targetClass){
 		case "home":
 			pageRenderQuery(e, "home");
+			retrieveIssues("ALL");
 			break;
 		case "addUserPage":
 			pageRenderQuery(e, "newUser");

@@ -56,6 +56,17 @@ export function createIssuePageInfo(){
 		});
 }
 
+export async function retrieveIssues(context){
+	let response = await 
+		fetch(`php_scripts/getIssues.php?context=${context}`);
+	
+	populateIssues(response.json());		
+}
+
+function populateIssues(results){
+
+}
+
 // Clears login form fields 
 export function clearLogin(email, password){
 	email.value = "";
