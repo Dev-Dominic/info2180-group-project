@@ -12,12 +12,12 @@
 
 	// Sends all issues stored in database
 	function getIssues($context){
-		$required_rows = "title, issueType, status, assigned_to, created_by, created";
+		$required_rows = "i.issueID, i.title, i.issueType, i.status, CONCAT(u.firstname, ' ', u.lastname) AS fullname, i.created";
 		$table = "Issues";
 
 		// Returns all Issues
 		if($context == "ALL")
-			$sql = "SELECT $required_rows FROM $table";
+			$sql = "SELECT $required_rows FROM $table i JOIN Users u ON i.assigned_to=u.userID";
 
 		// Returns all OPEN Issues
 		if($context == "OPEN")

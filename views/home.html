@@ -27,38 +27,31 @@
 
 	<!-- Home Page -->
 	<div class="content">
-		<div class="top"> 
-			<h1>Issues</h1>
-			<button id="top" class="newIssue" style="color: white">Create New Issue</button>
+		<div class="home_content_style">
+			<div class="top"> 
+				<h1>Issues</h1>
+				<button id="top" class="newIssue" style="color: white">Create New Issue</button>
+			</div>
+
+			<ul id="aboveTitles">
+				<li>Filter by: </li>
+				<li>all</li>
+				<li>open</li>
+				<li>my tickets</li>
+			</ul>
+
+			<table id="issueTable">
+				<thead>
+					<th>Title</th>
+					<th>Type</th>
+					<th>Status</th>
+					<th>Assigned To</th>
+					<th>Created</th>
+				</thead>
+				<tbody id="issuesBody">
+
+				</tbody>
+			</table>
 		</div>
-
-		<ul id="aboveTitles">
-			<li>Filter by: </li>
-			<li>all</li>
-			<li>open</li>
-			<li>my tickets</li>
-		</ul>
-
-		<!-- 
-		<ul class="titles"> 
-			<li>Title</li>
-			<li>Type</li>
-			<li>Status</li>
-			<li>Assigned To</li>
-			<li>Created</li>
-		</ul>-->
-
-		<table id="issueTable">
-			<thead>
-				<th>Title</th>
-				<th>Type</th>
-				<th>Status</th>
-				<th>Assigned To</th>
-				<th>Created</th>
-			</thead>
-			<tbody id="issuesBody">
-
-			</tbody>
-		</table>
 	</div>
 </div>

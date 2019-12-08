@@ -42,7 +42,7 @@
 .titles{
 	display: flex;
 	justify-content: space-around;
-	grid-row: 3;
+	grid-row: 2;
 	list-style: none;
 	padding: 0.5rem;
 	font-size: 15px;
@@ -50,3 +50,49 @@
 	padding: 0.5rem;
 }
 
+.home_content_style {
+	display: grid;
+	grid-template-rows: 1fr 1fr 10fr;
+}
+
+#issueTable{
+	border-collapse: collapse;
+	grid: 3;
+}
+
+#issueTable thead{
+	background-color: #ededed; 
+}
+
+#issueTable thead th{
+	padding: 5px;
+}
+
+#issueTable tbody{
+	text-align: center;
+}
+
+#issueTable tbody tr{
+	border-bottom: 1px solid #ededed;
+}
+
+#issueTable tbody tr:hover{
+	background-color: #f6f6f6;
+	cursor: pointer;
+}
+
+#issueTable tbody tr td{
+	padding: 10px;
+	font-size: 0.65rem;
+	font-weight: bold;
+}
+
+#issueTable tbody tr td:nth-child(1){
+	color: #4d4dff;
+}
+
+
+#issueTable tbody tr td:nth-child(1):hover{
+	color: #6ee0e0;
+	text-decoration: underline;
+}
