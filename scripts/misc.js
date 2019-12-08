@@ -98,6 +98,11 @@ function populateIssues(results){
 
 export function populateIssueDetail(issueID){
 	console.log(issueID);
+	fetch(`php_scripts/getIssue.php?issueID=${issueID}`)
+		.then(response => response.json())
+		.then(response => {
+			console.log(response);
+		});
 }
 
 // Clears login form fields 

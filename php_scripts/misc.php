@@ -1,5 +1,5 @@
 <?php 
-
+	/* Stores all other useful functions */
 	include_once "server.php";	
 
 	// Sends all users stored in database	
@@ -40,7 +40,23 @@
 		}
 	}
 
-	/* Stores all other useful functions */
+	function getIssue($issueID){
+		$required_rows = "i.issueID, i.title, i.issueType, i.status, CONCAT(ast.firstname, ' ', ast.lastname) AS fullnameAS, CONCAT(cr.firstname, ' ', cr.lastname) AS fullnameCR, i.created, i.updated, i.description, i.priority";
+
+		$sql = "SELECT $required_rows  FROM ((Issues i JOIN Users ast ON i.assigned_to = ast.userID) JOIN Users cr ON i.created_by = cr.userID) WHERE i.issueID = $issueID";
+
+		try{
+			$conn = newConnection();
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			// Quering of database
+			$results = $conn->query($sql)->fetchAll();
+			
+			exit(json_encode(array("status" => true, "body" => $results)));
+		}catch(Exception $e){
+			exit(json_encode(array("status" => false, "body" => "An Error Occured")));
+		}
+	}
 
 	// Form Sanitze funcion
 	function sanitize($unsanitized){
