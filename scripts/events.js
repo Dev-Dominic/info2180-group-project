@@ -110,3 +110,4 @@ export async function createNewIssue(issueInfo){
 
 	return issueAdded.json();
 }
+

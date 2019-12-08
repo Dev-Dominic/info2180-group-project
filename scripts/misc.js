@@ -79,9 +79,13 @@ function populateIssues(results){
 	for(let i = 0; i < results.length; i++){
 		let currRow = document.createElement("tr");
 
-		currRow.classList.add("issue");
+		// Title and IssueID field 
+		let col = document.createElement("td");
+		col.appendChild(document.createTextNode(`#${results[i]["issueID"]} ${results[i]["title"]}`));
+		col.classList.add("issue");
+		currRow.appendChild(col);
 
-		addCol(currRow, `#${results[i]["issueID"]} ${results[i]["title"]}`);
+		// Adding other columsn to current row
 		addCol(currRow, results[i]["issueType"]);
 		addCol(currRow, results[i]["status"]);
 		addCol(currRow, results[i]["fullname"]);
@@ -91,6 +95,10 @@ function populateIssues(results){
 	}
 }
 
+
+export function populateIssueDetail(issueID){
+	console.log(issueID);
+}
 
 // Clears login form fields 
 export function clearLogin(email, password){

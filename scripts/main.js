@@ -2,7 +2,7 @@
 
 // Imports
 import { windowLoad, pageRenderQuery, loginSubmission, newUserQuery, createNewIssue }   from "./events.js";
-import { retrieveUserFormData, retrieveIssueFormData, retrieveIssues ,createIssuePageInfo } from "./misc.js";
+import { retrieveUserFormData, retrieveIssueFormData, retrieveIssues ,createIssuePageInfo, populateIssueDetail } from "./misc.js";
 
 // Login load
 window.addEventListener("load", e => windowLoad(e)); 
@@ -26,8 +26,15 @@ document.addEventListener('click',e => {
 		case "newUser":
 			break;
 		case "createIssue":
+		case "newIssue":
 			pageRenderQuery(e, "createIssue");
 			createIssuePageInfo();// Runs query to update Assigned to selection with user names  
+			break;
+		case "issue":
+			pageRenderQuery(e, "details");
+
+			// Retrieves issueID and populates detail page
+			populateIssueDetail(e.target.innerText[1]); 
 			break;
 		case "logout":
 			pageRenderQuery(e, "logout");
