@@ -33,6 +33,12 @@
 		3. Insert new issue information into database 
 
 4. Viewing all Issues(DASHBOARD HOME) 
+	* On page load make request to getIssues.php
+	* getIssues.php 
+		1. Query database 
+		2. Send query results 
+		3. Append each column to home page table
+		4. While appending from javascript added the needed style to each row's column
 
 5. Viewing Issue(Details)
 

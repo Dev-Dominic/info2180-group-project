@@ -1,6 +1,6 @@
 /* Event functions Lsiteners */
 import { renderPage } from "./renderpage.js";
-import { login, clearLogin } from "./misc.js";
+import { login, clearLogin, retrieveIssues } from "./misc.js";
 
 // MainView 
 const mainView = document.querySelector("#main");
@@ -24,15 +24,17 @@ export function windowLoad(){
 			email = document.querySelector("#email"); 
 			password = document.querySelector("#pword");
 
+			if(logInBtn == null){
+				retrieveIssues("ALL");
+				return ;
+			}
+
 			loginSubmission(logInBtn);
 		});
 }
 
 // Login
 export function loginSubmission(logInBtn){
-	if(logInBtn == null)
-		return ;
-
 	logInBtn.addEventListener("click", e  => {
 		e.preventDefault();
 		login(email, password)
@@ -55,6 +57,7 @@ export function loginSubmission(logInBtn){
 
 						// Renders Page and sets page buttons
 						mainView.innerHTML = response["body"];
+						retrieveIssues("ALL");
 					});
 			});
 	});

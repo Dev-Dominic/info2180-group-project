@@ -59,6 +59,39 @@ export function createIssuePageInfo(){
 		});
 }
 
+export function retrieveIssues(context){
+	fetch(`php_scripts/getIssues.php?context=${context}`)
+		.then(response => response.json())
+		.then(response => {
+			populateIssues(response["body"]);		
+		});
+}
+
+function populateIssues(results){
+
+	function addCol(row, text){
+		let col = document.createElement("td");
+		col.appendChild(document.createTextNode(text));
+
+		row.appendChild(col);
+	}
+	
+	for(let i = 0; i < results.length; i++){
+		let currRow = document.createElement("tr");
+
+		currRow.classList.add("issue");
+
+		addCol(currRow, `#${results[i]["issueID"]} ${results[i]["title"]}`);
+		addCol(currRow, results[i]["issueType"]);
+		addCol(currRow, results[i]["status"]);
+		addCol(currRow, results[i]["fullname"]);
+		addCol(currRow, results[i]["created"]);
+		
+		document.querySelector("#issueTable tbody").appendChild(currRow);
+	}
+}
+
+
 // Clears login form fields 
 export function clearLogin(email, password){
 	email.value = "";
