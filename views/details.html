@@ -31,7 +31,7 @@
 				<h5 id="details_subtitle"></h5>
 			</div>
 
-			<div id="details content">
+			<div id="details_content">
 
 				<div id="issue_desc">
 				</div>
@@ -49,14 +49,34 @@
 
 				<div id="side_content_info">
 
+					<div id="assigned_to">
+						<h5>Assigned To</h5>
+						<p></p>
+					</div>
+
+					<div id="type">
+						<h5>Type: </h5>
+						<p></p>
+					</div>
+
+					<div id="priority">
+						<h5>Priority: </h5>
+						<p></p>
+					</div>
+
+					<div id="status">
+						<h5>Status: </h5>
+						<p></p>
+					</div>
+
 				</div>
 
-				<div id="side_content_button_group">
-					<button class="detailsBtn">Mark as Closed</button>
-					<button class="detailsBtn">Mark In Progress</button>
-				</div>
+				<button id="closed" class="detailsBtn">Mark as Closed</button>
+				<button id="progress" class="detailsBtn">Mark In Progress</button>
+				<input type="hidden" value="" id="issueIDHidden">
 
 			</div>
+
 		</div>
 	</div>
 </div>

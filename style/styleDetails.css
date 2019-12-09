@@ -1,0 +1,76 @@
+#details{
+	display: grid;
+	grid-template-rows: 1fr 10fr;
+	grid-template-columns: repeat(12, 1fr); 
+	grid-gap: 20px;
+}
+
+#details_header{
+	grid-row: 1;
+	grid-column: 1 / -1;
+}
+
+#details_content{
+	grid-row: 2;
+	grid-column: 1 / 8;
+}
+
+#issue_date_details{
+	margin-top: 50px;
+	color: #949494;
+}
+
+#issue_date_details ul{
+	list-style-type: none;	
+}
+
+#issue_date_details ul li{
+	padding: 10px;
+}
+
+#details_side_content{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 70%;
+	grid-row: 2;
+	grid-column: 8 / 10;
+}
+
+#side_content_info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: #f8f8f8; 
+	border: 2px solid #ededed;
+	padding: 10px;
+}
+
+#side_content_info div {
+	padding: 10px;
+}
+
+#side_content_info div p{
+	font-size: 0.65rem;
+	font-weight: 200;
+	margin-top: 10px;
+}
+
+.detailsBtn{
+	padding: 10px;
+	color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+	border-radius: 5px;
+	border: none;
+}
+
+#closed{
+	background-color: red;
+}
+
+#progress{
+	background-color: green;
+}

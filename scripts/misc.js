@@ -95,14 +95,32 @@ function populateIssues(results){
 	}
 }
 
-
 export function populateIssueDetail(issueID){
-	console.log(issueID);
 	fetch(`php_scripts/getIssue.php?issueID=${issueID}`)
 		.then(response => response.json())
-		.then(response => {
-			console.log(response);
+		.then(response  => {
+			populateDetailPage(response["body"][0]);
 		});
+}
+
+function populateDetailPage(results){
+	// Header
+	document.querySelector("#details_main_title").innerHTML = results["title"];
+	document.querySelector("#details_subtitle").innerHTML = `Issue #${results["issueID"]}`;
+	
+	// Main content
+	document.querySelector("#issue_desc").innerHTML = results["description"];
+	document.querySelector("#created").innerHTML = `Created: ${results["created"]}`;
+	document.querySelector("#updated").innerHTML = `Updated: ${results["updated"]}`;
+
+	// Side column
+	document.querySelector("#assigned_to p").innerHTML = results["fullnameAS"];
+	document.querySelector("#type p").innerHTML = results["issueType"];
+	document.querySelector("#priority p").innerHTML = results["priority"];
+	document.querySelector("#status p").innerHTML = results["status"];
+
+	// Button Group setting issueID
+	document.querySelector("#issueIDHidden").setAttribute("value", results["issueID"]);
 }
 
 // Clears login form fields 

@@ -9,7 +9,6 @@
 		));	
 	}
 
-
 	// Sends all issues stored in database
 	function getIssues($context){
 		$required_rows = "i.issueID, i.title, i.issueType, i.status, CONCAT(u.firstname, ' ', u.lastname) AS fullname, i.created";
