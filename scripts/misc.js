@@ -68,7 +68,6 @@ export function retrieveIssues(context){
 }
 
 function populateIssues(results){
-
 	function addCol(row, text){
 		let col = document.createElement("td");
 		col.appendChild(document.createTextNode(text));
@@ -91,7 +90,7 @@ function populateIssues(results){
 		addCol(currRow, results[i]["fullname"]);
 		addCol(currRow, results[i]["created"]);
 		
-		document.querySelector("#issueTable tbody").appendChild(currRow);
+		document.querySelector("#issuesBody").appendChild(currRow);
 	}
 }
 
@@ -123,7 +122,19 @@ function populateDetailPage(results){
 	document.querySelector("#issueIDHidden").setAttribute("value", results["issueID"]);
 }
 
-// Clears login form fields 
+export function changeStatus(issueStatus, issueID){
+	fetch(`/php_scripts/changeStatus.php?status=${issueStatus}&issueID=${issueID}`)
+		.then(response => response.json())
+		.then(response => {
+			if(!response['status']){
+				alert(response["body"]);
+				return;
+			}
+
+			alert(`CHANGED STATUS TO: ${issueStatus}`);
+		});
+}
+
 export function clearLogin(email, password){
 	email.value = "";
 	password.value = "";

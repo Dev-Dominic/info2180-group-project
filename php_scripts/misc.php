@@ -57,11 +57,25 @@
 		}
 	}
 
+	function changeStatus($status, $issueID){
+		try{
+			$conn = newConnection();	
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+			$stmt = $conn->prepare("UPDATE Issues SET status='$status' WHERE issueID=$issueID");
+			$stmt->execute();
+
+			exit(json_encode(array("status" => true, "body" => "")));
+		}catch(Exception $e){
+			exit(json_encode(array("status" => false, "body" => "An Error Occured")));
+		}			
+	}
+
 	// Form Sanitze funcion
 	function sanitize($unsanitized){
 		$sanitize = array(); 
 		foreach($unsanitized as $key => $value)
-			$sanitize[$key] = htmlspecialchars($value);
+			$sanitize[$key] = trim(htmlspecialchars($value));
 
 		return $sanitize;
 	}

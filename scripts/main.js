@@ -2,7 +2,7 @@
 
 // Imports
 import { windowLoad, pageRenderQuery, loginSubmission, newUserQuery, createNewIssue }   from "./events.js";
-import { retrieveUserFormData, retrieveIssueFormData, retrieveIssues ,createIssuePageInfo, populateIssueDetail } from "./misc.js";
+import { retrieveUserFormData, retrieveIssueFormData, retrieveIssues ,createIssuePageInfo, populateIssueDetail, changeStatus } from "./misc.js";
 
 // Login load
 window.addEventListener("load", e => windowLoad(e)); 
@@ -36,6 +36,12 @@ document.addEventListener('click',e => {
 			// Retrieves issueID and populates detail page
 			populateIssueDetail(e.target.innerText[1]); 
 			break;
+		case "detailsBtn closed":
+			changeStatus("CLOSED", document.querySelector("#issueIDHidden").value);
+			break;
+		case "detailsBtn in_progress":
+			changeStatus("IN PROGRESS", document.querySelector("#issueIDHidden").value);
+			break;
 		case "logout":
 			pageRenderQuery(e, "logout");
 			break;
@@ -55,7 +61,6 @@ document.addEventListener('click',e => {
 			createNewIssue(retrieveIssueFormData())
 				.then(response => {
 					if(!response['status']){
-						console.log(response["body"]);
 						alert(response["body"]);
 						return;
 					}
